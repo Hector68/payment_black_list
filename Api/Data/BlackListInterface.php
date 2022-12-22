@@ -4,13 +4,17 @@ namespace Ronzhin\PaymentBlackList\Api\Data;
 
 interface BlackListInterface extends \Magento\Framework\DataObject\IdentityInterface
 {
-    const CACHE_TAG = 'pay_b';
-    const ID = 'id';
-    const FIELD_TYPE = 'field_type';
-    const FIELD_VALUE = 'field_value';
-    const IS_ACTIVE = 'is_active';
-    const CREATED_AT = 'created_at';
-    const UPDATED_AT = 'updated_at';
+    public const CACHE_TAG = 'pay_b';
+    public const ID = 'id';
+    public const FIELD_TYPE = 'field_type';
+    public const FIELD_VALUE = 'field_value';
+    public const IS_ACTIVE = 'is_active';
+    public const CREATED_AT = 'created_at';
+    public const UPDATED_AT = 'updated_at';
+
+    public const TYPE_EMAIL = 1;
+    public const TYPE_PHONE = 2;
+
 
     /**
      * Get id

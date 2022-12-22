@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
     <menu>
-        <add id="Ronzhin_PaymentBlackList::root" title="Payment Black List" translate="title" module="Ronzhin_PaymentBlackList" sortOrder="90" parent="Magento_Backend::stores" resource="Ronzhin_PaymentBlackList::root"/>
-        <add id="Ronzhin_PaymentBlackList::blacklist" title="Black List" translate="title" module="Ronzhin_PaymentBlackList" sortOrder="90" parent="Ronzhin_PaymentBlackList::root" action="payment_black_list/blacklist" resource="Ronzhin_PaymentBlackList::blacklist"/>
+        <add id="Ronzhin_PaymentBlackList::blacklist" title="Blacklist" translate="title" module="Ronzhin_PaymentBlackList" sortOrder="90" parent="Magento_Customer::customer" action="payment_black_list/blacklist" resource="Ronzhin_PaymentBlackList::blacklist"/>
     </menu>
 </config>

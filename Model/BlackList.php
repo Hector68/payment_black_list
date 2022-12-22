@@ -8,6 +8,10 @@ class BlackList extends AbstractModel implements \Ronzhin\PaymentBlackList\Api\D
 {
     /** @inheritDoc */
     protected $_eventPrefix = 'ronzhin_paymentblacklist_black_list';
+    /**
+     * @var BlackList\Validator
+     */
+    private $validationModel;
 
     /**
      * @return void
@@ -17,12 +21,34 @@ class BlackList extends AbstractModel implements \Ronzhin\PaymentBlackList\Api\D
         $this->_init(\Ronzhin\PaymentBlackList\Model\ResourceModel\BlackList::class);
     }
 
+    public function __construct(
+        \Magento\Framework\Model\Context                        $context,
+        \Magento\Framework\Registry                             $registry,
+        \Ronzhin\PaymentBlackList\Model\BlackList\Validator     $validationModel,
+        \Magento\Framework\Model\ResourceModel\AbstractResource $resource = null,
+        \Magento\Framework\Data\Collection\AbstractDb           $resourceCollection = null,
+        array                                                   $data = []
+    )
+    {
+        parent::__construct($context, $registry, $resource, $resourceCollection, $data);
+        $this->validationModel = $validationModel;
+    }
+
+
     /**
      * @return string[]
      */
     public function getIdentities()
     {
         return [self::CACHE_TAG . '_' . $this->getId()];
+    }
+
+    /**
+     * @return \Zend_Validate_Interface|null
+     */
+    protected function _getValidationRulesBeforeSave()
+    {
+        return $this->validationModel;
     }
 
     /**

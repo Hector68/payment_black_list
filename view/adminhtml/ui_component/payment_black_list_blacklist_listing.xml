@@ -64,6 +64,20 @@
                     <label translate="true">Delete</label>
                 </settings>
             </action>
+            <action name="enable">
+                <settings>
+                    <url path="payment_black_list/blacklist/massEnable"/>
+                    <type>enable</type>
+                    <label translate="true">Enable</label>
+                </settings>
+            </action>
+            <action name="disable">
+                <settings>
+                    <url path="payment_black_list/blacklist/massDisable"/>
+                    <type>disable</type>
+                    <label translate="true">Disable</label>
+                </settings>
+            </action>
             <action name="edit">
                 <settings>
                     <callback>

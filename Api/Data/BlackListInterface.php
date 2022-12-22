@@ -15,6 +15,8 @@ interface BlackListInterface extends \Magento\Framework\DataObject\IdentityInter
     public const TYPE_EMAIL = 1;
     public const TYPE_PHONE = 2;
 
+    public const ACTIVE_VALUE = 1;
+    public const INACTIVE_VALUE = 0 ;
 
     /**
      * Get id

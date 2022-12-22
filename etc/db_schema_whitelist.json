@@ -1,0 +1,19 @@
+{
+    "ronzhin_payment_blacklist": {
+        "column": {
+            "id": true,
+            "field_type": true,
+            "field_value": true,
+            "is_active": true,
+            "created_at": true,
+            "updated_at": true
+        },
+        "index": {
+            "RONZHIN_PAYMENT_BLACKLIST_FIELD_TYPE_FIELD_VALUE_IS_ACTIVE": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "RONZHIN_PAYMENT_BLACKLIST_FIELD_TYPE_FIELD_VALUE": true
+        }
+    }
+}

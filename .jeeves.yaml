@@ -39,7 +39,7 @@ Ronzhin:
                     on_update: true
                     default: CURRENT_TIMESTAMP
             indexes:
-                MYGENTO_REQUEST_KEY_STATUS:
+                INX_SEARCH:
                     columns: ['field_type', 'field_value', 'is_active']
                 IX_UNIQUE_VALUE:
                     type: 'unique'

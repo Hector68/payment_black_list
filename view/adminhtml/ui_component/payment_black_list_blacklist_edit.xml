@@ -9,11 +9,11 @@
     </argument>
     <settings>
         <buttons>
-            <button name="save_and_continue" class="Mygento\Base\Block\Adminhtml\Component\Edit\SaveAndContinueButton"/>
-            <button name="save" class="Mygento\Base\Block\Adminhtml\Component\Edit\SaveButton"/>
-            <button name="reset" class="Mygento\Base\Block\Adminhtml\Component\Edit\ResetButton"/>
-            <button name="delete" class="Mygento\Base\Block\Adminhtml\Component\Edit\DeleteButton"/>
-            <button name="back" class="Mygento\Base\Block\Adminhtml\Component\Edit\BackButton"/>
+            <button name="save_and_continue" class="Ronzhin\PaymentBlackList\Block\Adminhtml\Component\Edit\SaveAndContinueButton"/>
+            <button name="save" class="Ronzhin\PaymentBlackList\Block\Adminhtml\Component\Edit\SaveButton"/>
+            <button name="reset" class="Ronzhin\PaymentBlackList\Block\Adminhtml\Component\Edit\ResetButton"/>
+            <button name="delete" class="Ronzhin\PaymentBlackList\Block\Adminhtml\Component\Edit\DeleteButton"/>
+            <button name="back" class="Ronzhin\PaymentBlackList\Block\Adminhtml\Component\Edit\BackButton"/>
         </buttons>
         <namespace>payment_black_list_blacklist_edit</namespace>
         <dataScope>data</dataScope>

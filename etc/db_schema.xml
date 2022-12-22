@@ -10,7 +10,7 @@
         <constraint xsi:type="primary" referenceId="PRIMARY">
             <column name="id"/>
         </constraint>
-        <index referenceId="MYGENTO_REQUEST_KEY_STATUS" indexType="btree">
+        <index referenceId="INX_SEARCH" indexType="btree">
             <column name="field_type"/>
             <column name="field_value"/>
             <column name="is_active"/>

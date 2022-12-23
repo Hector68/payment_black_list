@@ -64,6 +64,10 @@ class Save extends \Ronzhin\PaymentBlackList\Controller\Adminhtml\BlackList
         if (empty($data['id'])) {
             $data['id'] = null;
         }
+        if(!empty($data['field_value'])){
+            $data['field_value'] = mb_strtolower(trim($data['field_value']));
+        }
+
         $entity->setData($data);
         try {
             $this->repository->save($entity);

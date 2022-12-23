@@ -3,6 +3,7 @@
 namespace Ronzhin\PaymentBlackList\Controller\Adminhtml\BlackList;
 
 use Magento\Framework\Exception\LocalizedException;
+use Ronzhin\PaymentBlackList\Api\Data\BlackListInterface;
 
 class Save extends \Ronzhin\PaymentBlackList\Controller\Adminhtml\BlackList
 {
@@ -64,9 +65,8 @@ class Save extends \Ronzhin\PaymentBlackList\Controller\Adminhtml\BlackList
         if (empty($data['id'])) {
             $data['id'] = null;
         }
-        if(!empty($data['field_value'])){
-            $data['field_value'] = mb_strtolower(trim($data['field_value']));
-        }
+
+        $data = $this->handleInputData($data);
 
         $entity->setData($data);
         try {
@@ -84,5 +84,25 @@ class Save extends \Ronzhin\PaymentBlackList\Controller\Adminhtml\BlackList
         }
         $this->dataPersistor->set('payment_black_list_blacklist', $data);
         return $resultRedirect->setPath('*/*/edit', ['id' => $this->getRequest()->getParam('id')]);
+    }
+
+    /**
+     * @param array $data
+     * @return array
+     */
+    private function handleInputData(array $data): array
+    {
+        $fieldType =  (int)($data['field_type'] ?? 0);
+        if(!empty($data['field_value'])){
+            $data['field_value'] = mb_strtolower(trim($data['field_value']));
+            if($fieldType === BlackListInterface::TYPE_PHONE){
+                $phone = preg_replace('/\D/', '', $data['field_value']);
+                if(strlen($phone) === 11 && in_array($phone[0], ['7','8'])){
+                    $phone =  substr($phone, 1);
+                }
+                $data['field_value'] = $phone;
+            }
+        }
+        return $data;
     }
 }

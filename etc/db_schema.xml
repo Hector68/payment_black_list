@@ -11,9 +11,9 @@
             <column name="id"/>
         </constraint>
         <index referenceId="INX_SEARCH" indexType="btree">
+            <column name="is_active"/>
             <column name="field_type"/>
             <column name="field_value"/>
-            <column name="is_active"/>
         </index>
         <constraint xsi:type="unique" referenceId="IX_UNIQUE_VALUE">
             <column name="field_type"/>

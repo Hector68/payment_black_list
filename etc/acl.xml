@@ -9,7 +9,7 @@
                 <resource id="Magento_Backend::stores">
                     <resource id="Magento_Backend::stores_settings">
                         <resource id="Magento_Config::config">
-                            <resource id="Ronzhin_PaymentBlackList::config" title="Ronzhin Payment Black List" translate="title"/>
+                            <resource id="Ronzhin_PaymentBlackList::config" title="Ronzhin Payment Black List Config" translate="title"/>
                         </resource>
                     </resource>
                 </resource>

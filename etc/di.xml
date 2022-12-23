@@ -3,6 +3,7 @@
     <preference for="Ronzhin\PaymentBlackList\Api\BlackListRepositoryInterface" type="Ronzhin\PaymentBlackList\Model\BlackListRepository"/>
     <preference for="Ronzhin\PaymentBlackList\Api\Data\BlackListInterface" type="Ronzhin\PaymentBlackList\Model\BlackList"/>
     <preference for="Ronzhin\PaymentBlackList\Api\Data\BlackListSearchResultsInterface" type="Magento\Framework\Api\SearchResults"/>
+    <preference for="Ronzhin\PaymentBlackList\Api\CheckCustomerDataInBlacklistInterface" type="Ronzhin\PaymentBlackList\Model\CheckCustomerDataInBlacklist"/>
     <type name="Magento\Framework\Model\Entity\RepositoryFactory">
         <arguments>
             <argument name="entities" xsi:type="array">
@@ -37,6 +38,20 @@
             <argument name="eventPrefix" xsi:type="string">payment_black_list_blacklist_grid_collection</argument>
             <argument name="eventObject" xsi:type="string">blacklist_grid_collection</argument>
             <argument name="resourceModel" xsi:type="string">Ronzhin\PaymentBlackList\Model\ResourceModel\BlackList</argument>
+        </arguments>
+    </type>
+    <type name="Magento\Payment\Model\MethodList">
+        <arguments>
+            <argument name="additionalChecks" xsi:type="array">
+                <item name="user_in_blacklist" xsi:type="string">user_in_blacklist</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Payment\Model\Checks\SpecificationFactory">
+        <arguments>
+            <argument name="mapping" xsi:type="array">
+                <item name="user_in_blacklist" xsi:type="object">Ronzhin\PaymentBlackList\Model\Checks\UserInBlacklist</item>
+            </argument>
         </arguments>
     </type>
 </config>

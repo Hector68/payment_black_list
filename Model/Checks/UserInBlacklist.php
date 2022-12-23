@@ -61,7 +61,7 @@ class UserInBlacklist implements SpecificationInterface
         if (empty($phone)) {
             $phone = $quote->getBillingAddress()->getTelephone();
         }
-        return $phone;
+        return (string)$phone;
     }
 
     /**
@@ -80,6 +80,6 @@ class UserInBlacklist implements SpecificationInterface
             $email = $quote->getBillingAddress()->getEmail();
         }
 
-        return $email;
+        return (string)$email;
     }
 }

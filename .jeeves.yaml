@@ -1,0 +1,46 @@
+Ronzhin:
+  PaymentBlackList:
+        BlackList:
+            tablename: ronzhin_payment_blacklist
+            comment: 'Table for payment blacklist'
+            columns:
+                id:
+                    type: int
+                    pk: true
+                    identity: true
+                    unsigned: true
+                    comment: 'Entity ID'
+                field_type:
+                    type: smallint
+                    unsigned: true
+                    nullable: false
+                    source: 'Ronzhin\PaymentBlackList\Model\Source\BlackList\FieldType'
+                    comment: 'Field type'
+                field_value:
+                    type: varchar
+                    length: 255
+                    nullable: true
+                    comment: 'value'
+                is_active:
+                    type: boolean
+                    nullable: false
+                    comment: 'Is Active'
+                    default: 0
+                created_at:
+                    type: timestamp
+                    nullable: false
+                    comment: 'Created At'
+                    on_update: false
+                    default: CURRENT_TIMESTAMP
+                updated_at:
+                    type: timestamp
+                    nullable: false
+                    comment: 'Updated At'
+                    on_update: true
+                    default: CURRENT_TIMESTAMP
+            indexes:
+                INX_SEARCH:
+                    columns: ['is_active', 'field_type', 'field_value']
+                IX_UNIQUE_VALUE:
+                    type: 'unique'
+                    columns: ['field_type', 'field_value']
